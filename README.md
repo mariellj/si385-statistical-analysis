@@ -1,29 +1,37 @@
-# DoU02 — What Does a Mile Cost?
+# SI 385 — Statistical Analysis Projects
 
-**SI 385 | Statistical Analysis | University of Michigan**
+**University of Michigan · School of Information · Fall 2026**
 
-## Question
-Which mileage adjustment should a credit union consider when evaluating used-car asking prices?
+A portfolio of applied statistical analysis projects examining how data preparation, model selection, and analytical assumptions affect real-world conclusions.
 
-## Overview
-This project re-examines two inherited ordinary least squares (OLS) analyses of Craigslist vehicle listings. The original analysts estimated approximately **-$277** (mileage only) and **-$633** (mileage plus vehicle age) per additional 10,000 miles. I reproduced these estimates, tested a third model controlling for manufacturer, and investigated whether sample selection influenced the comparison.
+## Projects
 
-## Approach and findings
-- Reproduced the original mileage-only model on **4,086** listings and the age-adjusted model on **3,645** listings.
-- Fit an age- and manufacturer-adjusted model on **3,529** listings; its mileage coefficient was approximately **-$757.39 per 10,000 miles**.
-- Re-ran the age-adjusted model on the same 3,529 listings to separate changes in the model specification from changes in the sample.
-- Recommended the simpler age-adjusted estimate (approximately **-$630 per 10,000 miles**) as a provisional starting point, not a final lending rule. Craigslist *asking prices* are not completed sale prices, and unobserved condition or other vehicle characteristics may matter.
+### 01 — [NYC Restaurant Health Inspection Analysis](nyc-restaurant-inspections/)
 
-## Skills and tools
-Python, pandas, statsmodels, OLS regression, categorical controls, model comparison, data filtering, sensitivity analysis, marimo.
+**Research question:** How sensitive is the difference in NYC restaurant inspection scores between independent and chain restaurants to analytical decisions?
 
-## Files
-- [`notebook/DoU02_mj.py`](notebook/DoU02_mj.py) — my marimo analysis notebook.
-- [`notebook/DoU02_mj.html`](notebook/DoU02_mj.html) — exported notebook for viewing results.
-- [`docs/decision_memo_and_revision.pdf`](docs/decision_memo_and_revision.pdf) — decision memo and revision account.
+Audited an inherited analysis, addressed repeated violation rows, tested alternative definitions of a chain, and compared results within cuisine groups. The estimated score gap changed under different analytical choices, illustrating the importance of sensitivity analysis. These descriptive differences do not establish unequal enforcement.
 
-## Reproducibility
-The notebook expects the course dataset at `data/craigslist_vehicles_sample.csv` (or `../../data/craigslist_vehicles_sample.csv`). The dataset is **not included** in this repository. To run it, use a local copy obtained through an authorized source and install `marimo`, `pandas`, and `statsmodels`.
+**Methods:** Data cleaning, descriptive statistics, grouped comparisons, sensitivity analysis  
+**Tools:** Python, pandas, marimo
 
-## Attribution
-The Mensah and Varga analyses were inherited reference notebooks supplied as part of the SI 385 course assignment. Their source files are not redistributed here. My notebook reproduces their models for comparison and adds the manufacturer-adjusted analysis and same-sample check.
+[Read the project and view the notebook](nyc-restaurant-inspections/)
+
+### 02 — [What Does a Mile Cost? Used Vehicle Price Analysis](DoU02-used-car-mileage/)
+
+**Research question:** Which mileage adjustment should a credit union consider when evaluating used-car asking prices?
+
+Compared three ordinary least squares models: mileage only (approximately **−$277** per additional 10,000 miles), mileage plus vehicle age (**−$633**), and mileage plus age and manufacturer (**−$757**). Conducted a same-sample comparison and recommended the simpler age-adjusted estimate as a provisional starting point, not a final lending rule.
+
+**Methods:** OLS regression, categorical controls, model comparison, same-sample sensitivity checks  
+**Tools:** Python, pandas, statsmodels, marimo
+
+[Read the project, view notebook exports, and access the decision memo](DoU02-used-car-mileage/)
+
+## Skills demonstrated
+
+Python · pandas · statsmodels · statistical modeling · data cleaning · exploratory analysis · sensitivity analysis · data interpretation · analytical communication · marimo
+
+## Attribution and reproducibility
+
+These projects were completed as part of SI 385 coursework. Each project README distinguishes inherited course-provided analyses from my additional work. Course datasets are not included. Findings are from coursework analyses and have not been independently validated as policy recommendations.

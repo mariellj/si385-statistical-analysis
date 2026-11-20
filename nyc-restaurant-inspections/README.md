@@ -1,4 +1,3 @@
-[nyc_restaurant_README_recruiter.md](https://github.com/user-attachments/files/35129532/nyc_restaurant_README_recruiter.md)
 # NYC Restaurant Health Inspection Analysis
 
 **SI 385 · University of Michigan · Fall 2026**

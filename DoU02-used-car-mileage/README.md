@@ -1,6 +1,7 @@
 # DoU02 — What Does a Mile Cost?
-
 **SI 385 | Statistical Analysis | University of Michigan**
+
+**[View Full Analysis & Results](https://mariellj.github.io/si385-statistical-analysis/DoU02-used-car-mileage/)**
 
 ## Question
 Which mileage adjustment should a credit union consider when evaluating used-car asking prices?

@@ -1,30 +1,66 @@
+[README.md](https://github.com/user-attachments/files/35127231/README.md)
 # NYC Restaurant Health Inspection Analysis
 
-**Course:** SI 385 — Data Science / Statistical Analysis (Fall 2026)
+**SI 385 | University of Michigan | Fall 2026**
 
-## Question
-Are independent restaurants held to a different standard than chain restaurants in NYC health inspections? More specifically, how sensitive is the observed score gap to analytical decisions? Higher inspection scores indicate more violation points.
+I started this assignment with an analysis that said independent restaurants had inspection scores about 44% worse than chains in New York City. I wanted to know how much that number depended on the choices behind it.
 
-## Approach
-- Audited an inherited marimo analysis that reported independent restaurants scoring approximately **44% worse** than chains.
-- Identified repeated violation rows for the same restaurant inspection and recalculated the comparison with **one observation per inspection** (reported gap: about **41%**).
-- Tested definitions of a chain based on **5+, 10+, or 20+** locations; the reported gap varied from **37% to 53%**.
-- Compared restaurant types within cuisines; independents had higher average scores in **42 of 48** comparable cuisines (**87.5%**).
+**[View the analysis and findings](analysis/index.html)** · **[View my source code (Python / marimo)](notebooks/DoU01_mariellj.py)**
 
-These are descriptive associations, not proof that inspection standards or treatment differ. Results are reported from the student's notebook and have not been independently reproduced for this portfolio.
+> The analysis link opens as a webpage once GitHub Pages is enabled. On GitHub itself, HTML files appear as code.
 
-## Files
-- [`notebooks/DoU01_mariellj.py`](notebooks/DoU01_mariellj.py) — student's marimo notebook, with one unparseable duplicate text cell removed for portability.
-- [`notebooks/DoU01_inherited.py`](notebooks/DoU01_inherited.py) — original inherited starter analysis, included for methodological comparison; course-provided material, not authored by the student.
+## The question
 
-## Run
-Install Python 3.11+ and the notebook dependencies (`marimo`, `pandas`, `pyarrow`, `matplotlib`). From the project folder, run:
+Are independent restaurants getting higher violation scores than chains? And does that difference change when we count inspections differently or change what qualifies as a chain?
+
+Higher inspection scores mean more violation points, so a higher score is worse.
+
+## 1. I started by checking the original result
+
+The inherited notebook reported a **44% gap** between independent restaurants and chains. Before accepting that number, I looked at how the data was organized.
+
+I found that a single inspection could show up on several rows when multiple violations were recorded. The inspection score was repeated across those rows, which could give some inspections extra weight.
+
+**What changed:** When I counted each inspection once, the reported gap dropped to **about 41%**.
+
+## 2. I tested what counts as a chain
+
+The dataset didn't include a chain label. The original analysis treated restaurant names with **10 or more locations** as chains, so I checked other cutoffs:
+
+| Minimum locations | Reported gap |
+|---|---:|
+| 5+ | 37% |
+| 10+ (original) | 44% |
+| 20+ | 53% |
+
+This showed me that the headline could change quite a bit without changing the inspection scores themselves.
+
+## 3. I compared restaurants within cuisines
+
+I also wanted to see whether the overall pattern appeared within different types of food. Among **48 cuisines** where I could compare both groups, independents had higher average scores in **42 (87.5%)**.
+
+## What I took away
+
+The general pattern held up across several checks, but the exact percentage depended on how I defined and grouped the data. I wouldn't use the original 44% figure without explaining those decisions. The results describe score differences; they don't prove that inspectors treat independent restaurants differently.
+
+## Explore the project
+
+- **[View analysis and findings](analysis/index.html)** — a readable walkthrough of the results (publish with GitHub Pages).
+- **[View my source code](notebooks/DoU01_mariellj.py)** — the Python/marimo notebook with my additional analysis.
+- **[View the inherited notebook](notebooks/DoU01_inherited.py)** — the course-provided starting point, included for comparison.
+
+**Tools:** Python, pandas, marimo, matplotlib, data grouping, exploratory analysis, sensitivity checks.
+
+## Running the notebook
+
+Install Python 3.11+ and `marimo`, `pandas`, `pyarrow`, and `matplotlib`. From the project directory:
 
 ```bash
 marimo edit notebooks/DoU01_mariellj.py
 ```
 
-The notebook attempts to load `nyc_inspections.parquet` from the original course data location, then falls back to a course GitHub URL. Availability of the external dataset is not guaranteed.
+The notebook first looks for `nyc_inspections.parquet` locally and otherwise tries the course GitHub dataset. The dataset isn't included here, and the external source may not always be available.
 
-## Attribution
-The inherited notebook and assignment framing were provided as SI 385 coursework. The additional investigations, interpretations, and sensitivity analysis appear in the student notebook.
+## Attribution and limitations
+
+The original notebook and assignment framing were provided as SI 385 coursework. My added investigations and interpretations appear in `DoU01_mariellj.py`. The findings shown here come from that notebook and have not been independently reproduced for this portfolio.

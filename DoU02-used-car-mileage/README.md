@@ -1,30 +1,25 @@
-# DoU02 — What Does a Mile Cost?
-**SI 385 | Statistical Analysis | University of Michigan**
+# What Does a Mile Cost? — Used-Car Price Analysis
 
-**[View Full Analysis & Results](https://mariellj.github.io/si385-statistical-analysis/DoU02-used-car-mileage/)**
+**SI 385 · University of Michigan · Fall 2026**
 
-## Question
-Which mileage adjustment should a credit union consider when evaluating used-car asking prices?
+**[View Notebook & Results](https://mariellj.github.io/si385-statistical-analysis/DoU02-used-car-mileage/)** · **[View Python Source Code](notebook/DoU02_mj.py)** · **[View Decision Memo](decision_memo_only.pdf)**
 
-## Overview
-This project re-examines two inherited ordinary least squares (OLS) analyses of Craigslist vehicle listings. The original analysts estimated approximately **-$277** (mileage only) and **-$633** (mileage plus vehicle age) per additional 10,000 miles. I reproduced these estimates, tested a third model controlling for manufacturer, and investigated whether sample selection influenced the comparison.
+## The question
 
-## Approach and findings
-- Reproduced the original mileage-only model on **4,086** listings and the age-adjusted model on **3,645** listings.
-- Fit an age- and manufacturer-adjusted model on **3,529** listings; its mileage coefficient was approximately **-$757.39 per 10,000 miles**.
-- Re-ran the age-adjusted model on the same 3,529 listings to separate changes in the model specification from changes in the sample.
-- Recommended the simpler age-adjusted estimate (approximately **-$630 per 10,000 miles**) as a provisional starting point, not a final lending rule. Craigslist *asking prices* are not completed sale prices, and unobserved condition or other vehicle characteristics may matter.
+How much should a credit union adjust a used car's estimated value for every additional 10,000 miles?
 
-## Skills and tools
-Python, pandas, statsmodels, OLS regression, categorical controls, model comparison, data filtering, sensitivity analysis, marimo.
+## What I found
 
-## Files
-- [`notebook/DoU02_mj.py`](notebook/DoU02_mj.py) — my marimo analysis notebook.
-- [`notebook/DoU02_mj.html`](notebook/DoU02_mj.html) — exported notebook for viewing results.
-- [`docs/decision_memo_and_revision.pdf`](docs/decision_memo_and_revision.pdf) — decision memo and revision account.
+I started with two course-provided regression analyses of Craigslist asking prices. I reproduced their estimates, added manufacturer to a third model, and checked whether differences came from model choices or the listings used.
 
-## Reproducibility
-The notebook expects the course dataset at `data/craigslist_vehicles_sample.csv` (or `../../data/craigslist_vehicles_sample.csv`). The dataset is **not included** in this repository. To run it, use a local copy obtained through an authorized source and install `marimo`, `pandas`, and `statsmodels`.
+- **Mileage only:** An estimated **$277 decrease** in asking price per additional 10,000 miles.
+- **Mileage and age:** An estimated **$633 decrease** per additional 10,000 miles.
+- **Mileage, age, and manufacturer:** My model estimated a **$757 decrease**. I also compared the models on the same listings to check the effect of sample selection.
 
-## Attribution
-The Mensah and Varga analyses were inherited reference notebooks supplied as part of the SI 385 course assignment. Their source files are not redistributed here. My notebook reproduces their models for comparison and adds the manufacturer-adjusted analysis and same-sample check.
+## Takeaway
+
+I recommended the simpler age-adjusted estimate of **about $630 per 10,000 miles** as a starting point, not a fixed lending rule. Adding more variables did not automatically make a model more useful for this decision. The data covers *asking prices*, not completed sales, so the recommendation would need more testing.
+
+**Tools:** Python, pandas, statsmodels, marimo · OLS regression, model comparison, sensitivity analysis
+
+*The starting analyses were provided for SI 385 coursework. My additional model, same-sample comparison, and recommendation are documented in the notebook and decision memo. The course dataset is not included in this repository.*

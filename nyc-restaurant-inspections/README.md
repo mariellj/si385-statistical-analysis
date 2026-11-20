@@ -1,5 +1,10 @@
 [README.md](https://github.com/user-attachments/files/35127231/README.md)
 # NYC Restaurant Health Inspection Analysis
+### Explore the Project
+
+[View Full Analysis & Results](https://mariellj.github.io/si385-statistical-analysis/nyc-restaurant-inspections/analysis/)
+
+[View Python Source Code](notebooks/DoU01_mariellj.py)
 
 **SI 385 | University of Michigan | Fall 2026**
 

@@ -2,7 +2,7 @@
 
 **SI 385 · University of Michigan · Fall 2026**
 
-[View Notebook & Results](https://mariellj.github.io/si385-statistical-analysis/DoU02-used-car-mileage/notebook/DoU02_mj.html)
+**[View Notebook & Results](https://mariellj.github.io/si385-statistical-analysis/DoU02-used-car-mileage/notebook/DoU02_mj.html)** · **[View Decision Memo (PDF)](decision_memo_only.pdf)**
 
 ## The question
 
